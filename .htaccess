@@ -1,0 +1,13 @@
+DirectoryIndex public/index.php
+
+
+Options All -Indexes
+
+
+RewriteEngine On
+
+RewriteBase /mvc_article_managemetn/
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)$ public/index.php?page=$1
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/$ public/index.php?page=$1
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)$ public/index.php?page=$1&action=$2
+RewriteRule ^([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)/$ public/index.php?page=$1&action=$2
