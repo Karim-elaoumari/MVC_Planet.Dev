@@ -6,18 +6,25 @@ class adminController extends userController{
     public function __construct(){
         $this->user = new user;
         $this->articles = new article;
+        session_start();
         
     }
     public function showDashboard(){
-        $title = "Admin | Dashboard";
-        ob_start();
-        $dashStatus ="text-white-50";$artiStatus ="fw-bold" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
-        include_once '../app/views/includes/sidebar.php';
-        $this->includes1();
-        include_once '../app/views/includes/dashboard.php';
-        $this->includes2();
-        $content = ob_get_clean();
-        include_once '../app/views/home.php';
+        if(isset($_SESSION["id"])){
+            $title = "Admin | Dashboard";
+            ob_start();
+            $dashStatus ="text-white-50";$artiStatus ="fw-bold" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
+            include_once '../app/views/includes/sidebar.php';
+            $this->includes1();
+            include_once '../app/views/includes/dashboard.php';
+            $this->includes2();
+            $content = ob_get_clean();
+            include_once '../app/views/home.php';
+        }
+        else{
+            header("location:../login");
+        }
+
     }
     public function showArticals(){
         $title = "Admin | Articals";

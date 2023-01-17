@@ -25,13 +25,18 @@
                          <div class="card-body table-responsive mt-2" style="height: 60vh; overflow: scroll;">
                                            <table class="table border-secondary text-center table-hover ">
                                             <tr class="top-0 position-sticky bg-light">
-                                                <td class="mycolor fw-bold ">Doctor Name</td>
-                                                <td class="mycolor fw-bold">Email</td>
-                                                <td class="mycolor fw-bold">Speciality</td>
-                                                <td class="mycolor fw-bold">Events</td>
-                                            </tr> 
-                                            
-                                          
+                                                <td class="mycolor fw-bold ">Title</td>
+                                                <td class="mycolor fw-bold">Categorie</td>
+                                                <td class="mycolor fw-bold">Content</td>
+                                                <td class="mycolor fw-bold">Actions</td>
+                                            </tr>
+                                            <tr class="bg-light border-bottom-0">
+                                                <td class="text-dark">Appointement number</td>
+                                                <td class="text-dark">Patient name</td>
+                                                <td class="text-dark"><button type="button" class="btn btn-primary btn-sm">full info</button></td>
+                                                <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Publish</button>
+                                                <button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                            </tr>
                                            </table>
                          </div>
 </section>

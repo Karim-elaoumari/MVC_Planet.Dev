@@ -3,7 +3,7 @@
   
                 <h3 class="fw-bold" style="color:#21DB00"><i
                     class="uil uil-chart-bar fs-4 me-2 "></i>Dashboard</h3>
-                    <div class="cover_image " style="background-image: url(http://localhost/mvc_article_managemetn/public/assets/cover.jpg);background-size:cover; border-radius:10px"  >
+                    <div class="cover_image " style="background-image: url(http://localhost/MVC_Planet.Dev/public/assets/cover.jpg);background-size:cover; border-radius:10px"  >
                     <div class="container mb-4">
                         <div class="row">
                             <div class="col-md-12 p-5 pb-5 text-white">

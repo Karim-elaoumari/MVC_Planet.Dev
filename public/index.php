@@ -10,12 +10,12 @@ $pages = ['home',"admin","login"];
 $admin_pages = ['dashboard','articals','users',"autors","addArticles"];
 
 
-if(isset($_POST["login"]))           loginn();
+if(isset($_POST["login"]))           loginn($user1);
 if(isset($_POST["updateArt"]))       updateArt();
 if(isset($_POST["addArt"]))          addArt();
 if(isset($_POST["deleteArt"]))       deleteArt();
 if(isset($_POST["showUpdateArt"]))   showUpdateArt();
-if(isset($_POST["logout"]))          logout();
+if(isset($_POST["logout"]))          logout($user1);
 
 
 
@@ -47,7 +47,15 @@ if(isset($_GET['page'])){
             }
     }
     else if($_GET['page']==$pages[2]){
-        $user1->login();
+        if(isset($_GET['action'])){
+            if($_GET['action']=="error")      $user1->login(true);
+            else                              $errorpages->error404();
+           
+        }
+        else
+            $user1->login(false);
+        
+        
     }
     else if($_GET['page']==$pages[1]){
         $home1->index();
@@ -60,8 +68,8 @@ if(isset($_GET['page'])){
 }
 
 
-function loginn(){
-
+function loginn($user1){
+    $user1->verifylogin($_POST["email"],$_POST["password"]);
 }
 function updateArt(){
     
@@ -75,8 +83,8 @@ function deleteArt(){
 function showUpdateArt(){
     
 }
-function logout(){
-    
+function logout($user1){
+    $user1->logout();
 }
 
 

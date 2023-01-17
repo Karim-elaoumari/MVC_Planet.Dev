@@ -1,5 +1,5 @@
 
-<link href="http://localhost/mvc_article_managemetn/public/assets/css/home-style.css" rel="stylesheet">
+<link href="http://localhost/MVC_Planet.Dev/public/assets/css/home-style.css" rel="stylesheet">
 <header class="navigation fixed-top">
   <div class="container ">
     <!-- main nav -->
@@ -66,7 +66,7 @@
 End Fixed Navigation
 ====================== -->
 <div class="hero-slider">
-	<div class="slider-item th-fullpage hero-area" style="background-image: url(http://localhost/mvc_article_managemetn/public/assets/cover2.jpg);">
+	<div class="slider-item th-fullpage hero-area" style="background-image: url(http://localhost/MVC_Planet.Dev/public/assets/cover2.jpg);">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center ">
@@ -80,7 +80,7 @@ where developpers grow </h1>
 			</div>
 		</div>
 	</div>
-	<div class="slider-item th-fullpage hero-area" style="background-image: url(http://localhost/mvc_article_managemetn/public/assets/cover1.jpg);">
+	<div class="slider-item th-fullpage hero-area" style="background-image: url(http://localhost/MVC_Planet.Dev/public/assets/cover1.jpg);">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">

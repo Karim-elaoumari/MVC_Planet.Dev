@@ -52,7 +52,7 @@
 		
 		<p>the page you are looking for not avaible!</p>
 		
-		<a href="http://localhost/mvc_article_managemetn/" class="link_404">Go to Home</a>
+		<a href="http://localhost/MVC_Planet.Dev" class="link_404">Go to Home</a>
 	</div>
 		</div>
 		</div>

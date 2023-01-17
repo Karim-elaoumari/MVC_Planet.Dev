@@ -1,17 +1,21 @@
 
-<link href="http://localhost/mvc_article_managemetn/public/assets/css/admin-style.css" rel="stylesheet">
+<link href="http://localhost/MVC_Planet.Dev/public/assets/css/admin-style.css" rel="stylesheet">
 
 <div class="d-flex shadow-sm bg-light" id="wrapper">
         <div class="myBackground2" id="sidebar-wrapper">
             <div class="sidebar-heading text-center d-flex flex-column py-4 fs-5 border-bottom mt-5">
                 <div class=" align-items-center">
-                    <img src="http://localhost/mvc_article_managemetn/public/assets/user.png" width="70px" class="rounded-circle me-3 mb-3" alt="">
+                    <img src="http://localhost/MVC_Planet.Dev/public/assets/user.png" width="70px" class="rounded-circle me-3 mb-3" alt="">
                     <div class="mycolor">
                         <p style="margin:-5px;">admin</p>
                         <p class="text-secondary fs-6">admin@admin.com</p>
                     </div>
                 </div>
-                <a href="scripts/logout.php" class="btn btn-lg btn-block btn-light my-3 mycolor button1 fs-6 ">Log out</a> </div>
+                <form action="" method="post">
+                <button type="submit" name="logout" class="btn btn-lg btn-block btn-light my-3 mycolor button1 fs-6 w-100">Log out</button>
+                </form>
+</div>
+               
           
                 <a href="dashboard" type="submit"  class="list-group-item list-group-item-action text-white  <?=  $dashStatus?> "><i
                         class="uil uil-chart-bar fs-4 me-2"></i>Dashboard</a>

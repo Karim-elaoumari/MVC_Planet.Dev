@@ -2,11 +2,12 @@
 <?php
 class user extends DBconnection{
   
-    public function login(){
+    public function login($email,$password){
         $db = self::getConnection();
-        $stmt = $db->prepare('SELECT * FROM jokes ORDER BY datetime DESC ');
-        $stmt->execute();
-        return $stmt->fetchAll();
+        $stmt = $db->prepare('SELECT * FROM users where email=:email and password=:password');
+        $stmt->execute(array(":email"=>$email,":password"=>$password));
+        $res=   $stmt->fetch();
+        return $res;
     }
     public function signup(){
     }
