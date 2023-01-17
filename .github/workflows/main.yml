@@ -9,9 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    - name: Hello World by LGM
+      uses: lgmorand/github-action-hello@v2
 
-    - name: Install npm packages
-      run: npm ci
 
