@@ -1,15 +1,19 @@
-name: Install npm packages
-
 on:
-  repository_dispatch: 
-    types: [clone]
+  push:
+    branches:
+      - '**'
+
+name: Discord Notification
 
 jobs:
-  install_packages:
+  notify:
+    name: Discord Notification
     runs-on: ubuntu-latest
-
     steps:
-    - name: Hello World by LGM
-      uses: lgmorand/github-action-hello@v2
-
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: fateyan/action-discord-notifier@v1
+        with:
+          message-title: New Commits Pushed
+          webhook: https://discordapp.com/api/webhooks/00000000000/secret
 
