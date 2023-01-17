@@ -1,12 +1,8 @@
 name: Install npm packages
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  repository_dispatch: 
+    types: [clone]
 
 jobs:
   install_packages:
