@@ -1,0 +1,24 @@
+name: Create new branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check commit message
+      run: |
+        if [ "$(git log -1 --pretty=%B)" == "done" ]; then
+          echo "Commit message is 'done'"
+        else
+          echo "Commit message is not 'done'"
+          exit 1
+        fi
+    - name: Create new branch
+      run: |
+        git checkout -b hello1
+        git push -u origin hello1
