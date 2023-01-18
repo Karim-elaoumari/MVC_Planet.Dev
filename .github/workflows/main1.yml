@@ -3,16 +3,21 @@ name: Create Branch
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   create_branch:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: Check for "done" in commit message
       run: |
-        if grep -q "done" <<< "$GITHUB_EVENT_NAME"; then
-          branch_name=`echo $GITHUB_EVENT_NAME | awk '{print $2}' | cut -d '"' -f2`
+        commit_message=$(jq -r .head_commit.message <<< "$GITHUB_EVENT_PAYLOAD")
+        if echo $commit_message | grep -q "done"; then
+          branch_name=$(echo $commit_message | awk '{print $2}')
           git branch $branch_name
           git push -u origin $branch_name
+        else
+          echo "Commit message does not contain 'done'"
         fi
