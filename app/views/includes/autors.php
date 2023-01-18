@@ -9,23 +9,15 @@
                           <div class="card-body table-responsive mt-4" style="height: 50vh; overflow: scroll;">
                             <table class="table border-secondary text-center table-hover ">
                                 <tr>
-                                    <td class="mycolor fw-bold ">Name</td>
-                                    <td class="mycolor fw-bold">CIN</td>
-                                    <td class="mycolor fw-bold">Phone Number</td>
-                                    <td class="mycolor fw-bold">Email</td>
-                                    <td class="mycolor fw-bold">Date of Birthday</td>
-                                    <td class="mycolor fw-bold">Events</td>
+                                    <td class="mycolor fw-bold ">#</td>
+                                    <td class="mycolor fw-bold">Name</td>
+                                    <td class="mycolor fw-bold">E-mail</td>
                                 </tr>     
-                                <tr>
-                                    <td class="text-dark">Salim</td>
-                                    <td class="text-dark">JB54321</td>
-                                    <td class="text-dark">+21254637281</td>
-                                    <td class="text-dark">hello@gmail.com</td>
-                                    <td class="text-dark">1998-12-23</td>
-                                    <td class="text-dark">
-                                        <button class="btn mycolor button1 rounded-pill"><i class="mycolor uil uil-eye"></i>view</button>
-                                    </td>
-                                </tr>     
+                                <tr class="bg-light border-bottom-0">
+                                                <td class="text-dark">dfgyhjk</td>
+                                                <td class="text-dark">drftgyhuj</td>
+                                                <td class="text-dark">full info</td>
+                                </tr>
                                </table>
                           </div>
                          
