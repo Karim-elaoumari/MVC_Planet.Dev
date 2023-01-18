@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="modal-doctor">
+<div class="modal fade" id="modal-edit">
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <form action="scripts/admin_scripts.php" method="POST" name="form_add_doctor">

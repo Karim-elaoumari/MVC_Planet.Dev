@@ -9,17 +9,17 @@
                           <div class="card-body table-responsive mt-4" style="height: 50vh; overflow: scroll;">
                             <table class="table border-secondary text-center table-hover ">
                                 <tr>
-                                    <td class="mycolor fw-bold ">Name</td>
-                                    <td class="mycolor fw-bold">CIN</td>
+                                    <td class="mycolor fw-bold ">#</td>
+                                    <td class="mycolor fw-bold">Name</td>
+                                    <td class="mycolor fw-bold">E-mail</td>
                                  
                                 </tr> 
                                 <tr class="bg-light border-bottom-0">
-                                                <td class="text-dark"></td>
-                                                <td class="text-dark"></td>
-                                                <td class="text-dark"><button type="button" class="btn btn-primary btn-sm">full info</button></td>
-                                                <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Edit</button>
-                                                <button type="button" class="btn btn-danger btn-sm">Delete</button></td>
-                                            </tr>
+                                                <td class="text-dark">edzcav</td>
+                                                <td class="text-dark">aef</td>
+                                                <td class="text-dark">zefc</td>
+                                              
+                                </tr>
                                </table>
                           </div>
                          

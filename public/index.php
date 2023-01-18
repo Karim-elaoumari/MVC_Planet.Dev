@@ -3,19 +3,27 @@ include_once '../autoload.php';
 $admin1 = new adminController;
 $home1 = new homeController;
 $user1 = new userController;
+$ajax = new ajaxController;
 $errorpages = new errorpagesController;
 
 
 $pages = ['home',"admin","login"];
 $admin_pages = ['dashboard','articals','users',"autors","addArticles"];
 
+if(isset($_POST["searchArt"])) {
+    $ajax->searchArt($_POST["searchArt"]) ;
+    die;
 
-if(isset($_POST["login"]))           loginn($user1);
+}  
+
+
+if(isset($_POST["login"]))           $user1->verifylogin($_POST["email"],$_POST["password"]);
 if(isset($_POST["updateArt"]))       updateArt();
 if(isset($_POST["addArt"]))          addArt();
 if(isset($_POST["deleteArt"]))       deleteArt();
 if(isset($_POST["showUpdateArt"]))   showUpdateArt();
-if(isset($_POST["logout"]))          logout($user1);
+if(isset($_POST["logout"]))          $user1->logout();
+    
 
 
 
@@ -25,7 +33,7 @@ if(isset($_GET['page'])){
             if(isset($_GET['action'])){
                         if($_GET['action']==$admin_pages[1]){
                             $admin1->showArticals();
-                        } 
+                        }
                         else if($_GET['action']==$admin_pages[2]){
                             $admin1->showUsers();
                         } 
@@ -69,7 +77,7 @@ if(isset($_GET['page'])){
 
 
 function loginn($user1){
-    $user1->verifylogin($_POST["email"],$_POST["password"]);
+    
 }
 function updateArt(){
     
@@ -84,7 +92,7 @@ function showUpdateArt(){
     
 }
 function logout($user1){
-    $user1->logout();
+    
 }
 
 

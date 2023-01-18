@@ -15,6 +15,7 @@ class adminController extends userController{
             $dashStatus ="text-white-50";$artiStatus ="fw-bold" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
             include_once '../app/views/includes/sidebar.php';
             $this->includes1();
+            $res = $this->article->getAll();
             include_once '../app/views/includes/dashboard.php';
             $this->includes2();
             $content = ob_get_clean();
@@ -77,16 +78,12 @@ class adminController extends userController{
      
     }
     public function includes1(){
-       
         include '../app/views/includes/alert.php';
         include '../app/views/includes/navbar.php';
     }
     public function includes2(){
-        include '../app/views/includes/forms/session_modal.php';
-        include '../app/views/includes/forms/view_doctor.php';
+        include '../app/views/includes/forms/view_article.php';
         include '../app/views/includes/forms/remove_doctor.php';
-        include '../app/views/includes/forms/session.php';
-        include '../app/views/includes/forms/remove_session.php';
         include '../app/views/includes/forms/add_edit_doctor.php';
     }
     public function checkAuth(){

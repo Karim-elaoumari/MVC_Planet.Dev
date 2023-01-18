@@ -1,5 +1,5 @@
 
- <div id="page-content-wrapper" class="myBackground" style="height: 100vh; overflow: scroll;background-color:#3B353A">
+ <div id="page-content-wrapper" class="myBackground" style="background-color:#3B353A">
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent p-4 pt-1 justify-content-between" id="">
                 
                     

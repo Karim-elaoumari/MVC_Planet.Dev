@@ -8,10 +8,7 @@
     font-size: small;
 
 }
-body{
-  width: 100vw;
-  overflow: hidden;
-}
+
 
 
 
@@ -41,7 +38,7 @@ body{
   #sidebar-wrapper {
     min-height: 100vh;
     min-width: 15rem;
-    margin-left: -16rem;
+    margin-left: -15rem;
     transition-duration: 1s;
   }
   
@@ -51,7 +48,7 @@ body{
   }
   
   #sidebar-wrapper .list-group {
-    min-width: 22rem;
+    min-width: 15rem;
     transition-duration: 1s;
   }
   
@@ -85,7 +82,7 @@ body{
     }
   
     #wrapper.toggled #sidebar-wrapper {
-      margin-left: -16rem;
+      margin-left: -15rem;
     }
   }
 

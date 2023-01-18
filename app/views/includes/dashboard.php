@@ -1,4 +1,4 @@
-<div class="container-fluid px-4 mt-0">
+<div class="container px-4">
 <section id="dashboard" >
   
                 <h3 class="fw-bold" style="color:#21DB00"><i
@@ -80,42 +80,27 @@
                 </div>
 
                   <section class="mt-5 ms-3 justify-content-between gap-3">
-                        <form method="post"   class="position-relative appointment-table rounded shadowborder" >
-                           <p class="ms-3 mycolor fs-4 fw-bold">New Articals Pedding Approvement</p>
-            
-                          
-                            <table class="table border-secondary text-center table-hover ">
-                                <tr class="">
-                                    <td class="mycolor fw-bold ">Article Name</td>
-                                    <td class="mycolor fw-bold">Article Categorie</td>
-                                    <td class="mycolor fw-bold">Article Content</td>
-                                    <td class="mycolor fw-bold">Action</td>
-                                </tr>     
-                                <tr class="bg-light border-bottom-0">
-                                    <td class="text-dark">Appointement number</td>
-                                    <td class="text-dark">Patient name</td>
-                                    <td class="text-dark"><button type="button" class="btn btn-primary btn-sm">full info</button></td>
-                                    <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Publish</button>
-<button type="button" class="btn btn-danger btn-sm">Delete</button></td>
-                                </tr>
-                                <tr class="bg-light border-bottom-0">
-                                    <td class="text-dark">Appointement number</td>
-                                    <td class="text-dark">Patient name</td>
-                                    <td class="text-dark">Doctor</td>
-                                    <td class="text-dark">Session</td>
-                                </tr>
-                                <tr class="bg-light border-bottom-0">
-                                    <td class="text-dark">Appointement number</td>
-                                    <td class="text-dark">Patient name</td>
-                                    <td class="text-dark">Doctor</td>
-                                    <td class="text-dark">Session</td>
-                                </tr>
-                            </table>
-                           
-                        </div>
-                       
-                        
-                        </form>
+                  <p class="fs-5 ms-2 mycolor">New Articles:</p>
+                  <div class=" table-responsive mt-2">
+                                           <table class="table border-secondary text-center table-hover ">
+                                            <tr class="top-0 position-sticky bg-light">
+                                                <td class="mycolor fw-bold ">Title</td>
+                                                <td class="mycolor fw-bold">Categorie</td>
+                                                <td class="mycolor fw-bold">Content</td>
+                                                <td class="mycolor fw-bold">Actions</td>
+                                            </tr>
+                                            <?php   
+                                            foreach($res as $article){ ?>
+                                            <tr class="bg-light border-bottom-0">
+                                                <td class="text-dark"><?= $article["article_title"]?></td>
+                                                <td class="text-dark"><?= $article["categorie"]?></td>
+                                                <td class="text-dark"><button type="button" class="btn btn-primary btn-sm">full info</button></td>
+                                                <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Edit</button>
+                                                <button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                            </tr>
+                                            <?php } ?>
+                                           </table>
+                         </div>
                       
                      
                   </section>

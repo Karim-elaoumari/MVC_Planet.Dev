@@ -44,7 +44,16 @@ class article extends DBconnection{
         $stmt = $db->prepare('SELECT a.id as article_id,a.title as article_title,a.content as article_content,cat.name as categorie, au.name as author_name FROM articles a inner join users au ON au.id=a.author_id inner join categories cat ON a.categorie_id =cat.id');
         $stmt->execute();
         $res = $stmt->fetchAll();
-        
+        return $res;
+    }
+    public function searchArt($value){
+        $db = self::getConnection();
+        $stmt = $db->prepare('SELECT a.id as article_id,a.title as article_title,a.content as article_content,cat.name as categorie, au.name as author_name FROM articles a inner join users au ON au.id=a.author_id inner join categories cat ON a.categorie_id =cat.id where a.title LIKE :value OR  a.content LIKE :value');
+        $stmt->execute(array(":value"=>'%'.$value.'%'));
+       
+        $res = $stmt->fetchAll();
+        var_dump($res);
+        die;
         return $res;
     }
 }
