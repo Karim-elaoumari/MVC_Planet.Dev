@@ -3,7 +3,7 @@ name: Create Branch
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   create_branch:
@@ -15,7 +15,7 @@ jobs:
       run: |
         commit_message=$(jq -r .head_commit.message <<< "$GITHUB_EVENT_PAYLOAD")
         if echo $commit_message | grep -q "done"; then
-          branch_name=$(echo $commit_message | awk '{print $2}')
+          branch_name=$(echo $commit_message | awk '{print $2}' | cut -d ":" -f2)
           git branch $branch_name
           git push -u origin $branch_name
         else
