@@ -1,4 +1,4 @@
-name: Create new branch
+name: Create Branch
 
 on:
   push:
@@ -6,19 +6,13 @@ on:
       - main
 
 jobs:
-  create-branch:
+  create_branch:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check commit message
+    - name: Check for "done" in commit message
       run: |
-        if [ "$(git log -1 --pretty=%B)" == "done" ]; then
-          echo "Commit message is 'done'"
-        else
-          echo "Commit message is not 'done'"
-          exit 1
+        if grep -q "done" <<< "$GITHUB_EVENT_NAME"; then
+          branch_name=`echo $GITHUB_EVENT_NAME | awk '{print $2}' | cut -d '"' -f2`
+          git branch $branch_name
+          git push -u origin $branch_name
         fi
-    - name: Create new branch
-      run: |
-        git checkout -b hello1
-        git push -u origin hello1
