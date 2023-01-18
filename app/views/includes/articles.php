@@ -30,13 +30,16 @@
                                                 <td class="mycolor fw-bold">Content</td>
                                                 <td class="mycolor fw-bold">Actions</td>
                                             </tr>
+                                            <?php   
+                                            foreach($res as $article){ ?>
                                             <tr class="bg-light border-bottom-0">
-                                                <td class="text-dark">Appointement number</td>
-                                                <td class="text-dark">Patient name</td>
+                                                <td class="text-dark"><?= $article["article_title"]?></td>
+                                                <td class="text-dark"><?= $article["categorie"]?></td>
                                                 <td class="text-dark"><button type="button" class="btn btn-primary btn-sm">full info</button></td>
-                                                <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Publish</button>
+                                                <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Edit</button>
                                                 <button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                             </tr>
+                                            <?php } ?>
                                            </table>
                          </div>
 </section>

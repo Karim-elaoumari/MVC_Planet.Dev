@@ -11,21 +11,15 @@
                                 <tr>
                                     <td class="mycolor fw-bold ">Name</td>
                                     <td class="mycolor fw-bold">CIN</td>
-                                    <td class="mycolor fw-bold">Phone Number</td>
-                                    <td class="mycolor fw-bold">Email</td>
-                                    <td class="mycolor fw-bold">Date of Birthday</td>
-                                    <td class="mycolor fw-bold">Events</td>
-                                </tr>     
-                                <tr>
-                                    <td class="text-dark">Salim</td>
-                                    <td class="text-dark">JB54321</td>
-                                    <td class="text-dark">+21254637281</td>
-                                    <td class="text-dark">hello@gmail.com</td>
-                                    <td class="text-dark">1998-12-23</td>
-                                    <td class="text-dark">
-                                        <button class="btn mycolor button1 rounded-pill"><i class="mycolor uil uil-eye"></i>view</button>
-                                    </td>
-                                </tr>     
+                                 
+                                </tr> 
+                                <tr class="bg-light border-bottom-0">
+                                                <td class="text-dark"></td>
+                                                <td class="text-dark"></td>
+                                                <td class="text-dark"><button type="button" class="btn btn-primary btn-sm">full info</button></td>
+                                                <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Edit</button>
+                                                <button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                            </tr>
                                </table>
                           </div>
                          
