@@ -8,7 +8,7 @@ class admin extends user{
         $stmt->bindParam(":datetime",$date);
         $stmt->bindParam(":id",$id);
         $res = $stmt->execute();
-        if($res==true){qdsdq
+        if($res==true){
             return true;
         }
     }

@@ -52,8 +52,7 @@ class article extends DBconnection{
         $stmt->execute(array(":value"=>'%'.$value.'%'));
        
         $res = $stmt->fetchAll();
-        var_dump($res);
-        die;
+        
         return $res;
     }
 }
