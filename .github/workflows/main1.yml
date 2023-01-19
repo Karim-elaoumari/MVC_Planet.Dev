@@ -1,23 +1,33 @@
-name: Create Branch
-
 on:
   push:
     branches:
-      - main
+      - '**'
+
+name: Discord Notification
 
 jobs:
-  create_branch:
+  notify:
+    name: Discord Notification
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Check for "done" in commit message
-      run: |
-        commit_message=$(jq -r .head_commit.message <<< "$GITHUB_EVENT_PAYLOAD")
-        if echo $commit_message | grep -q "done"; then
-          branch_name=$(echo $commit_message | awk '{print $2}' | cut -d ":" -f2)
-          git branch $branch_name
-          git push -u origin $branch_name
-        else
-          echo "Commit message does not contain 'done'"
-        fi
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get Commit Message
+        run: |
+          message=$(git log -1 --pretty=%B)
+          echo "Commit message: $message"
+      - name: Check if commit message includes "done"
+        run: |
+          if [[ $message == *"done"* ]]; then
+            echo "Commit message includes 'done'"
+          else
+            echo "Commit message does not include 'done'"
+            exit 1
+          fi
+      - name: Discord Notification
+        uses: fateyan/action-discord-notifier@v1
+        if: success()
+        with:
+          message-title: New Commits Pushed
+          webhook: https://discordapp.com/api/webhooks/1064901964070141963/81q8rcsOIwOWhpxVamBVlVj9h_6ZoxpwRFQPVNN2-BsEv6AxSDm6Y7yd6pQlNUnpmxV_
+
