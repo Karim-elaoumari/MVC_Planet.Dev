@@ -10,11 +10,14 @@ $errorpages = new errorpagesController;
 $pages = ['home',"admin","login"];
 $admin_pages = ['dashboard','articals','users',"autors","addArticles"];
 
-if(isset($_POST["searchArt"])) {
+if(isset($_POST["searchArt"])){
     $ajax->searchArt($_POST["searchArt"]) ;
     die;
-
 }  
+if(isset($_POST["filterArt"])){
+    $ajax->filterArt($_POST["filterArt"]);
+    die;
+}
 
 
 if(isset($_POST["login"]))           $user1->verifylogin($_POST["email"],$_POST["password"]);

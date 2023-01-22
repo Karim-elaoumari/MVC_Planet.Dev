@@ -6,6 +6,9 @@ class userController{
         $this->user = new user;
       
     }
+    public function checkAuth(){
+        if(!isset($_SESSION["id"])) header("location:../login");
+    }
     public function login($err){
             $error="";
             if($err){

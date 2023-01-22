@@ -9,4 +9,10 @@ class ajaxController{
         $json = json_encode($res);
         echo $json;
     }
+    public function filterArt($value){
+        $res = $this->article->filterArt($value);
+        $json = json_encode($res);
+        echo $json;
+       
+    }
 }

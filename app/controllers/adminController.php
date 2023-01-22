@@ -86,7 +86,5 @@ class adminController extends userController{
         include '../app/views/includes/forms/remove_doctor.php';
         include '../app/views/includes/forms/add_edit_doctor.php';
     }
-    public function checkAuth(){
-        if(!isset($_SESSION["id"])) header("location:../login");
-    }
+   
 }
