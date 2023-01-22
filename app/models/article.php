@@ -55,8 +55,8 @@ class article extends DBconnection{
     }
     public function filterArt($value){
         $db = self::getConnection();
-        $stmt = $db->prepare('SELECT a.id as article_id,a.title as article_title,a.content as article_content,cat.name as categorie, au.name as author_name FROM articles a inner join users au ON au.id=a.author_id inner join categories cat ON a.categorie_id =cat.id where cat.name like ?');
-        $stmt->execute(array(":value"=>'%'.$value.'%'));
+        $stmt = $db->prepare('SELECT a.id as article_id,a.title as article_title,a.content as article_content,cat.name as categorie, au.name as author_name FROM articles a inner join users au ON au.id=a.author_id inner join categories cat ON a.categorie_id =cat.id where cat.name like :value');
+        $stmt->execute(array(":value"=>$value));
         $res = $stmt->fetchAll();
         return $res;
     }
