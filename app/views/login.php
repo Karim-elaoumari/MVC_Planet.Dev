@@ -12,7 +12,7 @@
           <div class="card">
             <div class="card-body py-5 px-md-3 ">
               <form method="post" action="http://localhost/MVC_Planet.Dev/login">
-                <p class="text-danger"><?= $error?></p>
+                <p class="text-danger"></p>
                
                <h3 class="pb-5">Login </h3>
 

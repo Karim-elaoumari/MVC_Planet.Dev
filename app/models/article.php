@@ -1,6 +1,6 @@
 
 <?php
-class article extends DBconnection{
+class article extends categorie{
  
     public function update($data,$date,$id){
         $db = self::getConnection();
@@ -29,19 +29,22 @@ class article extends DBconnection{
             return true;
         }
     }
-    public function add($value,$datetime){
+    public function add($title,$content,$author_id,$categorie,$cover){
         $db = self::getConnection();
-        $stmt = $db->prepare('INSERT INTO jokes (value, datetime) VALUES (:value,:datetime)');
-        $stmt->bindParam(":value",$value);
-        $stmt->bindParam(":datetime",$datetime);
-        
+     
+        $stmt = $db->prepare('INSERT INTO articles (title, content, author_id, categorie_id, cover) VALUES (:title,:content,:author_id,:categorie_id,:cover)');
+        $stmt->bindParam(":title",$title);
+        $stmt->bindParam(":content",$content, PDO::PARAM_STR);
+        $stmt->bindParam(":author_id",$author_id);
+        $stmt->bindParam(":categorie_id",$categorie);
+        $stmt->bindParam(":cover",$cover);
         if($stmt->execute()){
             return true;
         }
     }
     public  function getAll(){
         $db = self::getConnection();
-        $stmt = $db->prepare('SELECT a.id as article_id,a.title as article_title,a.content as article_content,cat.name as categorie, au.name as author_name FROM articles a inner join users au ON au.id=a.author_id inner join categories cat ON a.categorie_id =cat.id');
+        $stmt = $db->prepare('SELECT a.id as article_id,a.title as article_title,a.content as article_content,a.cover as article_cover,cat.name as categorie, au.name as author_name FROM articles a inner join users au ON au.id=a.author_id inner join categories cat ON a.categorie_id =cat.id');
         $stmt->execute();
         $res = $stmt->fetchAll();
         return $res;

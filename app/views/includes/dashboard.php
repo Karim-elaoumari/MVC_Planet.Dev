@@ -3,7 +3,7 @@
   
                 <h3 class="fw-bold" style="color:#21DB00"><i
                     class="uil uil-chart-bar fs-4 me-2 "></i>Dashboard</h3>
-                    <div class="cover_image " style="background-image: url(http://localhost/MVC_Planet.Dev/public/assets/cover.jpg);background-size:cover; border-radius:10px"  >
+                    <div class="cover_image " style="background-image: url(http://localhost/MVC_Planet.Dev/public/assets/img/cover.jpg);background-size:cover; border-radius:10px"  >
                     <div class="container mb-4">
                         <div class="row">
                             <div class="col-md-12 p-5 pb-5 text-white">
@@ -14,10 +14,7 @@
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque tenetur quod cumque?
                                 </p>
                                 <h6 class="fw-bolder">Search an Article here </h6>
-                                <div class="input-group pt-2" style="min-width:200px; max-width:500px">
-                                    <input type="search" class="form-control rounded " id="saerch_doc_value" placeholder="Search" onkeyup='fill_search()' aria-label="Search" aria-describedby="search-addon" />
-                                    <a href="" id="search_a_href" class="btn btn-secondary mycolor ms-2 rounded button1 border-0">search</a>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

@@ -4,13 +4,13 @@
             <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="http://localhost/MVC_Planet.Dev/public/assets/user.png" class="img-fluid rounded-start" alt="..." style="height:400px;width:auto">
+      <img src="" id="coverShow" class="img-fluid rounded-start" alt="..." style="max-height:300px;width:100%">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title" id="showTitle"></h5>
+        <p class="card-text" id="showContent"></p>
+       
       </div>
     </div>
   </div>

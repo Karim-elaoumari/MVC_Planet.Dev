@@ -1,16 +1,21 @@
 <?php
 class ajaxController{
-    public $article;
+    public $articleModel;
     public function __construct(){
-        $this->article = new article;
+        $this->articleModel = new article;
     }
     public function searchArt($value){
-        $res = $this->article->searchArt($value);
+        $res = $this->articleModel->searchArt($value);
         $json = json_encode($res);
         echo $json;
     }
     public function filterArt($value){
-        $res = $this->article->filterArt($value);
+        if($value=="default"){
+            $res =  $this->articleModel->searchArt("");
+        }
+        else{
+            $res = $this->articleModel->filterArt($value);
+        }
         $json = json_encode($res);
         echo $json;
        

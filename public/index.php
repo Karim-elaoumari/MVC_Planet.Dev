@@ -3,26 +3,25 @@ include_once '../autoload.php';
 $admin1 = new adminController;
 $home1 = new homeController;
 $user1 = new userController;
-$ajax = new ajaxController;
-$errorpages = new errorpagesController;
+$ajax1 = new ajaxController;
+$article1 = new articleController;
+
 
 
 $pages = ['home',"admin","login"];
 $admin_pages = ['dashboard','articals','users',"autors","addArticles"];
 
 if(isset($_POST["searchArt"])){
-    $ajax->searchArt($_POST["searchArt"]) ;
+    $ajax1->searchArt($_POST["searchArt"]);
     die;
 }  
 if(isset($_POST["filterArt"])){
-    $ajax->filterArt($_POST["filterArt"]);
+    $ajax1->filterArt($_POST["filterArt"]);
     die;
 }
-
-
 if(isset($_POST["login"]))           $user1->verifylogin($_POST["email"],$_POST["password"]);
 if(isset($_POST["updateArt"]))       updateArt();
-if(isset($_POST["addArt"]))          addArt();
+if(isset($_POST["addArt"]))          $article1->addArt($_POST['title'],$_POST['content'],$_POST["speciality"],$_FILES["cover"]);
 if(isset($_POST["deleteArt"]))       deleteArt();
 if(isset($_POST["showUpdateArt"]))   showUpdateArt();
 if(isset($_POST["logout"]))          $user1->logout();
@@ -50,7 +49,7 @@ if(isset($_GET['page'])){
                             $admin1->showDashboard();
                         }
                         else{
-                            $errorpages->error404();
+                            $$home1->error404();
                         }
             }
             else{
@@ -58,21 +57,13 @@ if(isset($_GET['page'])){
             }
     }
     else if($_GET['page']==$pages[2]){
-        if(isset($_GET['action'])){
-            if($_GET['action']=="error")      $user1->login(true);
-            else                              $errorpages->error404();
-           
-        }
-        else
-            $user1->login(false);
-        
-        
-    }
+            $user1->login(); 
+    }   
     else if($_GET['page']==$pages[1]){
         $home1->index();
     }
     else{
-        $errorpages->error404();
+        $$home1->error404();
     }
 }else{
     $home1->index();
@@ -120,21 +111,5 @@ function logout($user1){
 
 
 
-if (isset($_POST['title']) && isset($_POST['content'])) {
-    
-    $titles = $_POST['title'];
-    $contents = $_POST['content'];
-    $speciality = $_POST["speciality"];
-    $articles = array();
-        for ($i = 0; $i <count($titles); $i++){
-            $articles[] = array(
-              "title" => $titles[$i],
-              "content" => $contents[$i],
-              "speciality" => $speciality[$i]
-            );
-          }
-    echo '<pre>';
-    var_dump($articles);
-    echo '</pre>';
-  }
+
 ?>

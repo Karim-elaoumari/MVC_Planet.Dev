@@ -1,12 +1,11 @@
 <?php
 
 class adminController extends userController{
-    public $user;
-    public $articles;
+    public $adminModel;
+    public $articleModel;
     public function __construct(){
-        $this->user = new user;
-        $this->article = new article;
-        session_start();
+        $this->adminModel = new user;
+        $this->articleModel = new article;
     }
     public function showDashboard(){
             $this->checkAuth();
@@ -15,13 +14,11 @@ class adminController extends userController{
             $dashStatus ="text-white-50";$artiStatus ="fw-bold" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
             include_once '../app/views/includes/sidebar.php';
             $this->includes1();
-            $res = $this->article->getAll();
+            $res = $this->articleModel->getAll();
             include_once '../app/views/includes/dashboard.php';
             $this->includes2();
             $content = ob_get_clean();
             include_once '../app/views/home.php';
-       
-
     }
     public function showArticals(){
             $this->checkAuth();
@@ -30,13 +27,11 @@ class adminController extends userController{
             $dashStatus ="fw-bold" ;$artiStatus ="text-white-50" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
             include_once '../app/views/includes/sidebar.php';
             $this->includes1();
-            $res = $this->article->getAll();
+            $res = $this->articleModel->getAll();
             include_once '../app/views/includes/articles.php';
             $this->includes2();
             $content = ob_get_clean();
             include_once '../app/views/home.php';
-       
-        
     }
     public function showUsers(){
             $this->checkAuth();
@@ -62,12 +57,12 @@ class adminController extends userController{
             $this->includes2();
             $content = ob_get_clean();
             include_once '../app/views/home.php';
-        
     }
     public function showAddArticals(){
             $this->checkAuth();
             $title = "Admin | Add Articals";
             ob_start();
+            $categories = $this->articleModel->getCategories();
             $dashStatus ="fw-bold" ;$artiStatus ="text-white-50" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
             include '../app/views/includes/sidebar.php';
             $this->includes1();
@@ -75,7 +70,6 @@ class adminController extends userController{
             $this->includes2();
             $content = ob_get_clean();
             include_once '../app/views/home.php';
-     
     }
     public function includes1(){
         include '../app/views/includes/alert.php';
@@ -86,5 +80,4 @@ class adminController extends userController{
         include '../app/views/includes/forms/remove_doctor.php';
         include '../app/views/includes/forms/add_edit_doctor.php';
     }
-   
 }

@@ -5,7 +5,7 @@
         <div class="myBackground2" id="sidebar-wrapper">
             <div class="sidebar-heading text-center d-flex flex-column py-4 fs-5 border-bottom mt-5">
                 <div class=" align-items-center">
-                    <img src="http://localhost/MVC_Planet.Dev/public/assets/user.png" width="70px" class="rounded-circle me-3 mb-3" alt="">
+                    <img src="http://localhost/MVC_Planet.Dev/public/assets/img/user.png" width="70px" class="rounded-circle me-3 mb-3" alt="">
                     <div class="mycolor">
                         <p style="margin:-5px;">admin</p>
                         <p class="text-secondary fs-6">admin@admin.com</p>
