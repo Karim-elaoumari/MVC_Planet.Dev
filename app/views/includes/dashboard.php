@@ -79,23 +79,30 @@
                   <section class="mt-5 ms-3 justify-content-between gap-3">
                   <p class="fs-5 ms-2 mycolor">New Articles:</p>
                   <div class=" table-responsive mt-2">
-                                           <table class="table border-secondary text-center table-hover ">
+                  <table class="table border-secondary text-center table-hover text-white bg-white" id="articles1">
+                                            <thead>
                                             <tr class="top-0 position-sticky bg-light">
                                                 <td class="mycolor fw-bold ">Title</td>
                                                 <td class="mycolor fw-bold">Categorie</td>
                                                 <td class="mycolor fw-bold">Content</td>
                                                 <td class="mycolor fw-bold">Actions</td>
                                             </tr>
+
+                                            </thead>
+                                            
                                             <?php   
-                                            foreach($res as $article){ ?>
+                                            foreach($res as $article){?>
                                             <tr class="bg-light border-bottom-0">
                                                 <td class="text-dark"><?= $article["article_title"]?></td>
                                                 <td class="text-dark"><?= $article["categorie"]?></td>
-                                                <td class="text-dark"><button type="button" class="btn btn-primary btn-sm">View Content</button></td>
-                                                <td class="text-dark"><button type="button" class="btn btn-success btn-sm">Edit</button>
-                                                <button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                                <td class="text-dark" style="min-width:70px;"><button type="button" onclick="fillShowArticle(<?= $article['article_id']?>)" data-bs-toggle="modal" data-bs-target="#view-Art"class="btn btn-primary btn-sm" style="width:100px">View Content</button></td>
+                                                <td class="text-dark" style="min-width:140px;">
+                                                
+                                                  <form action="" method="post"><input type="hidden" name="id_Art" value="<?= $article['article_id']?>"><button type="button" class="btn btn-success btn-sm me-2" style="width:60px" onclick="fillEditArticle(`<?= $article['article_id']?>`)"data-bs-toggle="modal" data-bs-target="#editArticle">Edit</button><button type="submit" name="deleteArt" class="btn btn-danger btn-sm" style="width:60px">Delete</button></form></td>
                                             </tr>
-                                            <?php } ?>
+                                           
+                                            <?php }?>
+                                           
                                            </table>
                          </div>
                       

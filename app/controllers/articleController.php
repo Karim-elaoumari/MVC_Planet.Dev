@@ -5,8 +5,6 @@ class articleController{
         $this->articleModel = new article;
     }
     public function addArt($title,$content,$categorie,$cover){
-            
-            $articles = array();
                 for ($i = 0; $i <count($title); $i++){
                         $filename   = uniqid() . "-" . time();
                         $extension  = pathinfo( $cover['name'][$i], PATHINFO_EXTENSION); // jpg
@@ -27,5 +25,32 @@ class articleController{
                                
                         }
                   }
+    }
+    public function deleteArticles($id){
+         $res = $this->articleModel->delete($id);
+    }
+    public function updateArt($id,$title,$content,$cat_id,$cover,$oldCover){
+        if($cover["name"]=""){
+                $basename  = $oldCover;
+        }
+        else{
+
+                $filename   = uniqid() ."-" .time();
+                $extension  = pathinfo($cover["full_path"], PATHINFO_EXTENSION);
+                $basename   = "article-".$filename .".".$extension;
+                $target             = "../public/assets/img/".$basename;
+                $allowed='png,jpg,PNG,JPG,jpeg,JPEG';
+                $extension_allowed=  explode(',', $allowed);
+                if(!in_array($extension, $extension_allowed)){
+                        $_SESSION['danger'] = 'File type is not allowed (png, jpg) !';
+                }else{  
+                        $sourcePath         = $cover['tmp_name'];
+                        move_uploaded_file($sourcePath,$target);
+                }
+        }
+        $res = $this->articleModel->update($id,$title,$content,$cat_id,$basename);
+        if($res){
+               
+        }
     }
 }

@@ -19,15 +19,17 @@ if(isset($_POST["filterArt"])){
     $ajax1->filterArt($_POST["filterArt"]);
     die;
 }
+if(isset($_POST['getOneArt'])){
+    $ajax1->getOneArt($_POST["getOneArt"]);
+    die;
+
+}
 if(isset($_POST["login"]))           $user1->verifylogin($_POST["email"],$_POST["password"]);
-if(isset($_POST["updateArt"]))       updateArt();
+if(isset($_POST["updateArt"]))       $article1->updateArt($_POST["idOfEdit"],$_POST['title'],$_POST['content'],$_POST["categorie"],$_FILES["coverEdit"],$_POST["oldCover"]);
 if(isset($_POST["addArt"]))          $article1->addArt($_POST['title'],$_POST['content'],$_POST["speciality"],$_FILES["cover"]);
-if(isset($_POST["deleteArt"]))       deleteArt();
+if(isset($_POST["deleteArt"]))       $article1->deleteArticles($_POST["id_Art"]);
 if(isset($_POST["showUpdateArt"]))   showUpdateArt();
 if(isset($_POST["logout"]))          $user1->logout();
-    
-
-
 
 if(isset($_GET['page'])){ 
 
@@ -49,7 +51,7 @@ if(isset($_GET['page'])){
                             $admin1->showDashboard();
                         }
                         else{
-                            $$home1->error404();
+                            $home1->error404();
                         }
             }
             else{
@@ -63,7 +65,7 @@ if(isset($_GET['page'])){
         $home1->index();
     }
     else{
-        $$home1->error404();
+        $home1->error404();
     }
 }else{
     $home1->index();

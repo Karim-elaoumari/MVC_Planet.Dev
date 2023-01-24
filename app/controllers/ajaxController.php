@@ -1,4 +1,5 @@
 <?php
+
 class ajaxController{
     public $articleModel;
     public function __construct(){
@@ -19,5 +20,11 @@ class ajaxController{
         $json = json_encode($res);
         echo $json;
        
+    }
+    public function getOneArt($id){
+        $res = $this->articleModel->getOneArt($id);
+        $json = json_encode($res);
+        echo $json;
+
     }
 }

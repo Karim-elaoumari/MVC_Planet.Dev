@@ -14,7 +14,9 @@ class adminController extends userController{
             $dashStatus ="text-white-50";$artiStatus ="fw-bold" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
             include_once '../app/views/includes/sidebar.php';
             $this->includes1();
-            $res = $this->articleModel->getAll();
+            $res = $this->articleModel->getNewArt();
+            $categories = $this->articleModel->getCategories();
+            include '../app/views/includes/forms/editArticle.php';
             include_once '../app/views/includes/dashboard.php';
             $this->includes2();
             $content = ob_get_clean();
@@ -29,6 +31,8 @@ class adminController extends userController{
             $this->includes1();
             $res = $this->articleModel->getAll();
             include_once '../app/views/includes/articles.php';
+            $categories = $this->articleModel->getCategories();
+            include '../app/views/includes/forms/editArticle.php';
             $this->includes2();
             $content = ob_get_clean();
             include_once '../app/views/home.php';
@@ -78,6 +82,6 @@ class adminController extends userController{
     public function includes2(){
         include '../app/views/includes/forms/view_article.php';
         include '../app/views/includes/forms/remove_doctor.php';
-        include '../app/views/includes/forms/add_edit_doctor.php';
+      
     }
 }

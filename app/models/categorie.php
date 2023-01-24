@@ -10,8 +10,6 @@ class categorie extends DBconnection{
         $stmt->execute();
         $res = $stmt->fetchAll();
         return $res;
-
-       
     }
 
 }

@@ -1,5 +1,5 @@
 <div class="modal fade" id="view-Art">
-        <div class="modal-dialog ">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
             <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
