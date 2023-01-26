@@ -78,6 +78,7 @@ class pagesController{
     }
     public function includes1(){
         include '../app/views/includes/navbar.php';
+        include '../app/views/includes/alerts.php';
     }
     public function includes2(){
         include '../app/views/includes/forms/view_article.php';

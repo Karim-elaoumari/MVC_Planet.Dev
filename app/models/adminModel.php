@@ -3,13 +3,16 @@
 class adminModel extends DBconnection{
     public function login($email,$password){
         $db = self::getConnection();
-       
         $stmt = $db->prepare('SELECT * FROM admins where email=:email and password=:password');
         $stmt->execute(array(":email"=>$email,":password"=>$password));
         $res=   $stmt->fetch(PDO::FETCH_OBJ);
+        if($res){
+            $admin1 = new admin($res->id,$res->name,$res->email,$res->password);
+            return $admin1;
+        }
+        else return false;
+           
         
-        $admin1 = new admin($res->id,$res->name,$res->email,$res->password);
-        return $admin1;
     }
     public function signup(){
     }

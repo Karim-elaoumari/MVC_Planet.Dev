@@ -15,30 +15,23 @@ class adminController{
         }
         public function verifylogin($email,$password){
                  $emailRegex = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
-                if (preg_match($emailRegex, $email)) {
-                echo "Email is valid.";
+                if (!preg_match($emailRegex, $email))  $_SESSION["errorL"]= "This Is Not A valid Email";
+                else if (!strlen($password) >17)  $_SESSION["errorL"]= "Password should be between 5 and 17 characters.";
+                else{
+                        $admin = $this->adminModel->login($email,$password);
+                        if($admin){
+                              
+                                $_SESSION["id"] = $admin->id;
+                                $_SESSION["name"] = $admin->name;
+                                $_SESSION["email"] = $admin->email;
+                                header("location:admin");
+                        }
+                        else{
+                                $_SESSION["errorL"]= "Email or Password Error Try Again";
+                                header("location:login");
+                        }
+                }
                 
-                } else {
-                echo "Email is invalid.";
-        
-                }
-                if (strlen($password) >=5 && strlen($password) <=17) {
-                        // Password is valid
-                        echo "Password is valid.";
-                } else {
-                        // Password is invalid
-                        echo "Password should be between 5 and 17 characters.";
-                }
-                $admin = $this->adminModel->login($email,$password);
-                if($admin){
-                $_SESSION["id"] = $admin->id;
-                $_SESSION["name"] = $admin->name;
-                $_SESSION["email"] = $admin->email;
-                header("location:admin");
-        }
-        else{
-                header("location:login/error");
-        }
         }
         public function logout(){
                 session_destroy();

@@ -12,7 +12,13 @@
           <div class="card">
             <div class="card-body py-5 px-md-3 ">
               <form method="post" action="http://localhost/MVC_Planet.Dev/login"  onsubmit="return validateForm()">
-                <p class="text-danger"></p>
+
+              <?php  if(isset($_SESSION["errorL"])){?>
+                <p class="text-danger"><?= $_SESSION['errorL']?></p>
+                  
+              <?php
+              }
+              ?>
                
                <h3 class="pb-5">Login </h3>
 

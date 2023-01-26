@@ -21,13 +21,18 @@ class articleController{
                         }
                         $author=$_SESSION["id"];
                         $res = $this->articleModel->add($title[$i],$content[$i],$author,$categorie[$i],$basename);
-                        if($res){
-                               
-                        }
+                        if($res)  $_SESSION['seccess'] = "article Added  seccessfuly";
+                        else     $_SESSION['seccess'] = "article Not Added";
                   }
     }
     public function deleteArticles($id){
          $res = $this->articleModel->delete($id);
+         if($res){
+                $_SESSION['seccess'] = "article Deleted seccessfuly";
+         }
+         else{
+                $_SESSION['error'] = "article Not Deleted Try again";
+         }
     }
     public function updateArt($id,$title,$content,$cat_id,$cover,$oldCover){
         if($cover["full_path"]==''){
@@ -52,7 +57,10 @@ class articleController{
         $article = new article($id,$title,$content,$categorie,$basename);
         $res = $this->articleModel->update($article);
         if($res){
-               
+                $_SESSION['seccess'] = "article updated seccessfuly";
+        }
+        else{
+                $_SESSION['error'] = "article not updated";
         }
         
     }
