@@ -1,87 +1,49 @@
 <?php
 
-class adminController extends userController{
+class adminController{
     public $adminModel;
-    public $articleModel;
     public function __construct(){
-        $this->adminModel = new user;
-        $this->articleModel = new article;
+        $this->adminModel = new adminModel;
     }
-    public function showDashboard(){
-            $this->checkAuth();
-            $title = "Admin | Dashboard";
-            ob_start();
-            $dashStatus ="text-white-50";$artiStatus ="fw-bold" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
-            include_once '../app/views/includes/sidebar.php';
-            $this->includes1();
-            $res = $this->articleModel->getNewArt();
-            $categories = $this->articleModel->getCategories();
-            include '../app/views/includes/forms/editArticle.php';
-            include_once '../app/views/includes/dashboard.php';
-            $this->includes2();
-            $content = ob_get_clean();
-            include_once '../app/views/home.php';
-    }
-    public function showArticals(){
-            $this->checkAuth();
-            $title = "Admin | Articals";
-            ob_start();
-            $dashStatus ="fw-bold" ;$artiStatus ="text-white-50" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
-            include_once '../app/views/includes/sidebar.php';
-            $this->includes1();
-            $res = $this->articleModel->getAll();
-            include_once '../app/views/includes/articles.php';
-            $categories = $this->articleModel->getCategories();
-            include '../app/views/includes/forms/editArticle.php';
-            $this->includes2();
-            $content = ob_get_clean();
-            include_once '../app/views/home.php';
-    }
-    public function showUsers(){
-            $this->checkAuth();
-            $title = "Admin | Users";
-            ob_start();
-            $dashStatus ="fw-bold" ;$artiStatus ="fw-bold" ;$userStatus="text-white-50" ;$autorStatus="fw-bold";
-            include_once '../app/views/includes/sidebar.php';
-            $this->includes1();
-            include_once '../app/views/includes/users.php';
-            $this->includes2();
-            $content = ob_get_clean();
-            include_once '../app/views/home.php';
+
+        public function login(){
+                $title = "Home | Login";
+                ob_start();
+                include_once '../app/views/pages/login.php';
+                $content = ob_get_clean();
+                include_once '../app/views/home.php';
+        }
+        public function verifylogin($email,$password){
+                 $emailRegex = '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
+                if (preg_match($emailRegex, $email)) {
+                echo "Email is valid.";
+                
+                } else {
+                echo "Email is invalid.";
         
-    }
-    public function showAutors(){
-            $this->checkAuth();
-            $title = "Admin | Autors";
-            ob_start();
-            $dashStatus ="fw-bold" ;$artiStatus ="fw-bold" ;$userStatus="fw-bold" ;$autorStatus="text-white-50";
-            include_once '../app/views/includes/sidebar.php';
-            $this->includes1();
-            include_once '../app/views/includes/autors.php';
-            $this->includes2();
-            $content = ob_get_clean();
-            include_once '../app/views/home.php';
-    }
-    public function showAddArticals(){
-            $this->checkAuth();
-            $title = "Admin | Add Articals";
-            ob_start();
-            $categories = $this->articleModel->getCategories();
-            $dashStatus ="fw-bold" ;$artiStatus ="text-white-50" ;$userStatus="fw-bold" ;$autorStatus="fw-bold";
-            include '../app/views/includes/sidebar.php';
-            $this->includes1();
-            include '../app/views/includes/addArticles.php';
-            $this->includes2();
-            $content = ob_get_clean();
-            include_once '../app/views/home.php';
-    }
-    public function includes1(){
-        include '../app/views/includes/alert.php';
-        include '../app/views/includes/navbar.php';
-    }
-    public function includes2(){
-        include '../app/views/includes/forms/view_article.php';
-        include '../app/views/includes/forms/remove_doctor.php';
-      
-    }
+                }
+                if (strlen($password) >=5 && strlen($password) <=17) {
+                        // Password is valid
+                        echo "Password is valid.";
+                } else {
+                        // Password is invalid
+                        echo "Password should be between 5 and 17 characters.";
+                }
+                $admin = $this->adminModel->login($email,$password);
+                if($admin){
+                $_SESSION["id"] = $admin->id;
+                $_SESSION["name"] = $admin->name;
+                $_SESSION["email"] = $admin->email;
+                header("location:admin");
+        }
+        else{
+                header("location:login/error");
+        }
+        }
+        public function logout(){
+                session_destroy();
+                session_unset();
+                header("location:../login");
+        }
+        
 }

@@ -15,7 +15,7 @@
          <?php if(is_array($categories)){
           foreach($categories as $categorie){
             ?>
-          <option value="<?=$categorie['id'] ?>"><?=$categorie['name'] ?></option>
+          <option value="<?=$categorie->id ?>"><?=$categorie->name ?></option>
           <?php }} ?>
         </select>
   </div>
@@ -39,3 +39,4 @@
                          
 </section>
 </div>
+<script src="http://localhost/MVC_Planet.Dev/public/assets/js/articles.js"></script>

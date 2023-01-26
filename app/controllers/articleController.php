@@ -2,7 +2,7 @@
 class articleController{
     public $articleModel;
     public function __construct(){
-        $this->articleModel = new article;
+        $this->articleModel = new articleModel;
     }
     public function addArt($title,$content,$categorie,$cover){
                 for ($i = 0; $i <count($title); $i++){
@@ -30,11 +30,11 @@ class articleController{
          $res = $this->articleModel->delete($id);
     }
     public function updateArt($id,$title,$content,$cat_id,$cover,$oldCover){
-        if($cover["name"]=""){
+        if($cover["full_path"]==''){
                 $basename  = $oldCover;
         }
+        
         else{
-
                 $filename   = uniqid() ."-" .time();
                 $extension  = pathinfo($cover["full_path"], PATHINFO_EXTENSION);
                 $basename   = "article-".$filename .".".$extension;
@@ -48,9 +48,12 @@ class articleController{
                         move_uploaded_file($sourcePath,$target);
                 }
         }
-        $res = $this->articleModel->update($id,$title,$content,$cat_id,$basename);
+        $categorie = new categorie($cat_id,null);
+        $article = new article($id,$title,$content,$categorie,$basename);
+        $res = $this->articleModel->update($article);
         if($res){
                
         }
+        
     }
 }

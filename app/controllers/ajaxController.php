@@ -3,7 +3,7 @@
 class ajaxController{
     public $articleModel;
     public function __construct(){
-        $this->articleModel = new article;
+        $this->articleModel = new articleModel;
     }
     public function searchArt($value){
         $res = $this->articleModel->searchArt($value);

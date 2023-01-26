@@ -15,7 +15,6 @@
 <body>
     <?= $content ?>
 <script src="http://localhost/MVC_Planet.Dev/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="http://localhost/MVC_Planet.Dev/public/assets/js/articles.js"></script>
 <script src="http://localhost/MVC_Planet.Dev/public/assets/js/main.js"></script>
 
 </body>

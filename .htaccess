@@ -7,6 +7,8 @@ Options All -Indexes
 RewriteEngine On
 
 RewriteBase /MVC_Planet.Dev/
+
+RewriteRule ^app(.*)$ error [R=301,L]
 RewriteRule ^([a-zA-Z0-9-z\-\_]+)$ public/index.php?page=$1
 RewriteRule ^([a-zA-Z0-9-z\-\_]+)/$ public/index.php?page=$1
 RewriteRule ^([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)$ public/index.php?page=$1&action=$2

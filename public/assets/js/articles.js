@@ -77,7 +77,7 @@ function fillEditArticle(id){
     document.getElementById("categorieEdit").value = article.categorie_id;
     tinymce.get('contentEdit').setContent(article.article_content);
     document.getElementById("idOfEdit").value = article.article_id;
-    document.getElementById("oldCover").value = article.article_id;
+    document.getElementById("oldCover").value = article.article_cover;
    }
   }
   xhr.open("POST","", true);

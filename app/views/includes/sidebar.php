@@ -7,8 +7,8 @@
                 <div class=" align-items-center">
                     <img src="http://localhost/MVC_Planet.Dev/public/assets/img/user.png" width="70px" class="rounded-circle me-3 mb-3" alt="">
                     <div class="mycolor">
-                        <p style="margin:-5px;">admin</p>
-                        <p class="text-secondary fs-6">admin@admin.com</p>
+                        <p style="margin:-5px;"><?= $_SESSION["name"]?></p>
+                        <p class="text-secondary fs-6"><?= $_SESSION["email"]?></p>
                     </div>
                 </div>
                 <form action="" method="post">

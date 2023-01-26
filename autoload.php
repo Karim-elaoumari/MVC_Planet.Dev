@@ -4,7 +4,9 @@ spl_autoload_register(function($class_name){
     $array_path = array(
         '../app/controllers/',
         '../app/views/',
-        '../app/models/'
+        '../app/models/',
+        '../app/classes/'
+
     );
   
     foreach($array_path as $path){
